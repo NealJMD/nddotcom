@@ -1,3 +1,8 @@
+PAPERCLIP_FILE_ASSET_STORAGE_OPTIONS = {
+  path: "public/system/:class/:attachment/:id/:basename_:style.:extension",
+  url: "system/:class/:attachment/:id/:basename_:style.:extension"
+}
+
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 

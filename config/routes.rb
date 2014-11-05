@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :file_assets
+
   resources :posts
 
   resources :categories

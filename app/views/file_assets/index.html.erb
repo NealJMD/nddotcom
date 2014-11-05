@@ -1,0 +1,29 @@
+<h1>Listing file_assets</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Content</th>
+      <th>Post</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @file_assets.each do |file_asset| %>
+      <tr>
+        <td><%= file_asset.name %></td>
+        <td><%= file_asset.content %></td>
+        <td><%= file_asset.post %></td>
+        <td><%= link_to 'Show', file_asset %></td>
+        <td><%= link_to 'Edit', edit_file_asset_path(file_asset) %></td>
+        <td><%= link_to 'Destroy', file_asset, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New File asset', new_file_asset_path %>
