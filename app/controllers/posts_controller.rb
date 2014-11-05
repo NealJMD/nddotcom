@@ -12,11 +12,13 @@ class PostsController < ApplicationController
 
   # GET /posts/new
   def new
+    @categories = Category.all
     @post = Post.new
   end
 
   # GET /posts/1/edit
   def edit
+    @categories = Category.all
   end
 
   # POST /posts
@@ -26,6 +28,7 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to @post, notice: 'Post was successfully created.'
     else
+      @categories = Category.all
       render :new
     end
   end
@@ -35,6 +38,7 @@ class PostsController < ApplicationController
     if @post.update(post_params)
       redirect_to @post, notice: 'Post was successfully updated.'
     else
+      @categories = Category.all
       render :edit
     end
   end

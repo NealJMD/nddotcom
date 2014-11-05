@@ -12,11 +12,13 @@ class FileAssetsController < ApplicationController
 
   # GET /file_assets/new
   def new
+    @posts = Post.all
     @file_asset = FileAsset.new
   end
 
   # GET /file_assets/1/edit
   def edit
+    @posts = Post.all
   end
 
   # POST /file_assets
@@ -26,6 +28,7 @@ class FileAssetsController < ApplicationController
     if @file_asset.save
       redirect_to @file_asset, notice: 'File asset was successfully created.'
     else
+      @posts = Post.all
       render :new
     end
   end
@@ -35,6 +38,7 @@ class FileAssetsController < ApplicationController
     if @file_asset.update(file_asset_params)
       redirect_to @file_asset, notice: 'File asset was successfully updated.'
     else
+      @posts = Post.all
       render :edit
     end
   end
