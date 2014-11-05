@@ -4,10 +4,10 @@ one:
   category_id: 
   body: MyText
   title: MyString
-  published_at: 2014-11-05 12:12:57
+  published_at: 2014-11-05 12:34:13
 
 two:
   category_id: 
   body: MyText
   title: MyString
-  published_at: 2014-11-05 12:12:57
+  published_at: 2014-11-05 12:34:13
