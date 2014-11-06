@@ -29,6 +29,10 @@ gem 'paperclip'
 # admin authentication
 gem 'devise'
 
+# use rspec and spork for tests
+gem 'rspec-rails'
+gem 'spork'
+
 # store files on S3
 gem 'aws-sdk', group: :production
 # logging and assets for rails on heroku
