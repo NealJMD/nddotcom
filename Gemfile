@@ -3,6 +3,9 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.4'
+# use acts_as_tree for categories
+gem 'acts_as_tree'
+
 # Use sqlite3 as the database for dev and postgres for heroku
 gem 'sqlite3', group: [:development, :test]
 gem 'pg', group: :production
