@@ -5,7 +5,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.1.4'
 # Use sqlite3 as the database for dev and postgres for heroku
 gem 'sqlite3', group: [:development, :test]
-gem 'pg'
+gem 'pg', group: :production
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
@@ -31,6 +31,8 @@ gem 'devise'
 
 # store files on S3
 gem 'aws-sdk', group: :production
+# logging and assets for rails on heroku
+gem 'rails_12factor', group: :production
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
