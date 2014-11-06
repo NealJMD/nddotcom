@@ -28,6 +28,9 @@ gem 'paperclip'
 # admin authentication
 gem 'devise'
 
+# store files on S3
+gem 'aws-sdk', group: :production
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
