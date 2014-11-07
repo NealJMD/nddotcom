@@ -2,7 +2,11 @@
 
 <p>
   <strong>Category:</strong>
-  <%= @post.category.name %>
+  <% if @post.category.nil? %>
+    Uncategorized
+  <% else %>
+    <%= @post.category.name %>
+  <% end %>
 </p>
 
 <p>
