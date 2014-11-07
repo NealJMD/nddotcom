@@ -10,6 +10,20 @@ class CategoriesController < ApplicationController
 
   # GET /categories/1
   def show
+    if @category.posts.size == 0
+
+      # if the category is just a container, we
+      # redirect to the first child or it deserves an error
+      # to avoid redirect loops
+
+      if not @category.children.empty?
+        redirect_to(@category.children.first)
+      else
+        raise ActionController::RoutingError.new('Tried to show category with no posts or children.')
+      end
+    elsif @category.posts.size == 1
+      redirect_to(@category.posts.first)
+    end
   end
 
   # GET /categories/new

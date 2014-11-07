@@ -2,6 +2,7 @@ class Category < ActiveRecord::Base
   extend ActsAsTree::TreeWalker
 
   acts_as_tree order: "name"
+  has_many :posts
 
   validates :name, presence: true, allow_blank: false
   validate :no_loops
