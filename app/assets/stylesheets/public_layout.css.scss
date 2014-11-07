@@ -9,18 +9,17 @@
 
   @media(min-width:$two-column-width) {
 
-    $nav-padding: 5%;
-    $main-gutter-size: 5%;
-    $nav-total-width: 30%;
+    $main-total-width: 65%;
+    $nav-total-width: 25%;
+    $gutter-size: (100% - $main-total-width - $nav-total-width) / 3;
 
     .nav  {
-      width: $nav-total-width - (2 * $nav-padding);
-      height: 90%;
-      padding: 2%;
-      position: fixed;
-      top: 0;
-      right: 0;
-      bottom: 0;
+      $nav-padding: 2%;
+      width: $nav-total-width - (2 * $gutter-size);
+      height: 96%;
+      padding: 1em $nav-padding;
+      margin: 0 $gutter-size;
+      float: right;
 
       color: white;
       a {
@@ -44,9 +43,11 @@
 
     }
     .main {
-      padding: 1em 5%;
-      margin: 0 ($nav-total-width + $main-gutter-size) 0 $main-gutter-size;
-      width: (100% - (2*$main-gutter-size) - $nav-total-width);
+      $main-padding: 5%;
+      padding: 1em $main-padding;
+      float: right;
+      margin: 0;
+      width: $main-total-width - 2*$main-padding;
       background: #EEE;
     }
   }
