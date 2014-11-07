@@ -1,0 +1,11 @@
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+@mixin box-shadow($spread, $opacity) {
+  -webkit-box-shadow: 0px 0px $spread 0px rgba(0,0,0,$opacity); /* Android 2.3+, iOS 4.0.2-4.2, Safari 3-4 */
+          box-shadow: 0px 0px $spread 0px rgba(0,0,0,$opacity); /* Chrome 6+, Firefox 4+, IE 9+, iOS 5+, Opera 10.50+ */
+}
