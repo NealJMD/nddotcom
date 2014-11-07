@@ -107,8 +107,12 @@ describe Category do
         @success = blog.save
       end
 
-      it "should have changed the grandparent to itself" do
-        expect(blog.parent.parent.parent).to eq blog
+      it "should not have saved" do
+        expect(@success).to eq false
+      end
+
+      it "should have an error" do
+        expect(blog.errors.size).to eq 1
       end
     end
 

@@ -12,11 +12,13 @@ class CategoriesController < ApplicationController
 
   # GET /categories/new
   def new
+    @categories = Category.all
     @category = Category.new
   end
 
   # GET /categories/1/edit
   def edit
+    @categories = Category.all
   end
 
   # POST /categories
@@ -26,6 +28,7 @@ class CategoriesController < ApplicationController
     if @category.save
       redirect_to @category, notice: 'Category was successfully created.'
     else
+      @categories = Category.all
       render :new
     end
   end
@@ -35,6 +38,7 @@ class CategoriesController < ApplicationController
     if @category.update(category_params)
       redirect_to @category, notice: 'Category was successfully updated.'
     else
+      @categories = Category.all
       render :edit
     end
   end
@@ -53,6 +57,6 @@ class CategoriesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def category_params
-      params.require(:category).permit(:name)
+      params.require(:category).permit(:name, :parent_id)
     end
 end

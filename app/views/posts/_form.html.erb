@@ -20,8 +20,7 @@
     <%= f.text_area :body, rows: 12, cols: 72 %>
   </div>
   <div class="field">
-    <%= f.label :category_id %><br>
-    <%= f.collection_select :category_id, @categories, :id, :name, prompt: true %>
+    <%= render partial: "shared/category_picker", locals: {f: f, property: :category_id} %>
   </div>
   <div class="field">
     <%= f.label :published_at %><br>

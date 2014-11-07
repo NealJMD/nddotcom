@@ -38,7 +38,7 @@ describe Admin do
   end
   
   describe "with a password that's too short" do
-    before { @admin.password = @admin.password_confirmation = "a" * 7 }
+    before { @admin.password = @admin.password_confirmation = "a" * 3 }
     it { should_not be_valid } 
   end
   
