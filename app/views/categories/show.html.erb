@@ -2,17 +2,13 @@
   <%= @category.name %>
 </h1>
 
-<% @category.posts.each do |post|
-  if post.file_assets.size > 0
-    bg = "background-image: url(#{dev_safe_url(post.file_assets.first.content.url)})"
-  else
-    bg = "background-color: #{color_from_string(post.title)}"
-  end %>
-  <%= link_to post_path(post) do %>
-    <div class="category-tile <%= cycle("left-side", "right-side") %>" style="<%= bg %>">
-      <div class="tile-title">
-        <%= post.title %>
-      </div>
-    </div>
+<% @category.posts.each do |post| %>
+  <%= render partial: "category_tile", locals: {post: post} %>
+<% end %>
+<% @category.children.each do |child_cat| %>
+  <% if child_cat.posts.size < 1 then next end %>
+  <h2><%= link_to child_cat.name, child_cat %></h2>
+  <% child_cat.posts.each do |post| %>
+    <%= render partial: "category_tile", locals: {post: post} %>
   <% end %>
 <% end %>

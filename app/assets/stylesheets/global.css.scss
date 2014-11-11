@@ -18,9 +18,22 @@ body {
     transition: background-color 20s linear;
   }
 
-  h1 {
+  h1, h2 {
     font-weight: bold;
-    font-size: 1.3em;
     margin: 0.2em 0 0.5em 0;
+  }
+  h1 {
+    font-size: 1.3em;
+  }
+  h2 {
+    font-size: 1.1em;
+  }
+
+  a {
+    text-decoration: none;
+    color: black;
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }
