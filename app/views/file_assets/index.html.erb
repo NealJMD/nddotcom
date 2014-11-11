@@ -15,7 +15,7 @@
       <tr>
         <td><%= file_asset.name %></td>
         <td><%= file_asset.content %></td>
-        <td><%= file_asset.post %></td>
+        <td><%= link_to file_asset.post.title, edit_post_path(file_asset.post) %></td>
         <td><%= link_to 'Show', file_asset %></td>
         <td><%= link_to 'Edit', edit_file_asset_path(file_asset) %></td>
         <td><%= link_to 'Destroy', file_asset, method: :delete, data: { confirm: 'Are you sure?' } %></td>

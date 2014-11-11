@@ -1,9 +1,18 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
+<h1>
   <%= @category.name %>
-</p>
+</h1>
 
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
+<% @category.posts.each do |post|
+  if post.file_assets.size > 0
+    bg = "background-image: url(#{dev_safe_url(post.file_assets.first.content.url)})"
+  else
+    bg = "background-color: #{color_from_string(post.title)}"
+  end %>
+  <%= link_to post_path(post) do %>
+    <div class="category-tile <%= cycle("left-side", "right-side") %>" style="<%= bg %>">
+      <div class="tile-title">
+        <%= post.title %>
+      </div>
+    </div>
+  <% end %>
+<% end %>

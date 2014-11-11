@@ -17,4 +17,10 @@ body {
     z-index: -1;
     transition: background-color 20s linear;
   }
+
+  h1 {
+    font-weight: bold;
+    font-size: 1.3em;
+    margin: 0.2em 0 0.5em 0;
+  }
 }
