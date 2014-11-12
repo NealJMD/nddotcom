@@ -2,13 +2,12 @@
   <%= @category.name %>
 </h1>
 
-<% @category.posts.each do |post| %>
-  <%= render partial: "category_tile", locals: {post: post} %>
-<% end %>
-<% @category.children.each do |child_cat| %>
-  <% if child_cat.posts.size < 1 then next end %>
-  <h2><%= link_to child_cat.name, child_cat %></h2>
-  <% child_cat.posts.each do |post| %>
-    <%= render partial: "category_tile", locals: {post: post} %>
+<% if @category.posts.size > 0 %>
+  <% @category.posts.each do |post| %>
+    <%= render partial: "post_category_tile", locals: {post: post} %>
+  <% end %>
+<% else %>
+  <% @category.children.each do |child_cat| %>
+    <%= render partial: "category_category_tile", locals: {category: child_cat} %>
   <% end %>
 <% end %>

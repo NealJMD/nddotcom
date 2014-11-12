@@ -5,17 +5,20 @@
 @import "mixins";
 
 .category-tile {
-  width: 48%;
+  width: 47%;
   height: 10em;
   float: left;
   background-color: green;
   background-size: 220%;
   background-position: 50%;
   margin-bottom: 1.5em;
-  @include box-shadow(5px, 0.4);
+  border: 0.2em solid white;
 
   &.left-side {
-    margin-right: 4%;
+    float: left
+  }
+  &.right-side {
+    float: right;
   }
 
   .tile-title {
