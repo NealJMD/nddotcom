@@ -1,8 +1,8 @@
 <% 
 bg = "background-color: #{color_from_string(category.name)}; "
 category.posts.each do |post|
-  if post.file_assets.size > 0
-    bg << "background-image: url(#{dev_safe_url(post.file_assets.first.content.url(:preview))})"
+  if post.image_assets.size > 0
+    bg << "background-image: url(#{dev_safe_url(post.image_assets.first.content.url(:preview))})"
     break
   end
 end %>

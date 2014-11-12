@@ -1,7 +1,7 @@
 <% 
 bg = "background-color: #{color_from_string(post.title)};"
-if post.file_assets.size > 0
-  bg << "background-image: url(#{dev_safe_url(post.file_assets.first.content.url(:preview))});"
+if post.image_assets.size > 0
+  bg << "background-image: url(#{dev_safe_url(post.image_assets.first.content.url(:preview))});"
 end %>
 <%= link_to post_path(post) do %>
   <div class="category-tile <%= cycle("left-side", "right-side") %>" style="<%= bg %>">
