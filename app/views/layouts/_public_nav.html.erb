@@ -1,10 +1,8 @@
-<div class="nav">
-  <% Category.walk_tree do |category, level| %>
-    <% if level > 1 then next end %>
-    <%= link_to category_path(category) do %>
-      <div class="menu-category category-level-<%= level %>">
-        <%= category.name %>
-      </div>
-    <% end %>
+<% Category.walk_tree do |category, level| %>
+  <% if level > 1 then next end %>
+  <%= link_to category_path(category) do %>
+    <div class="menu-category category-level-<%= level %>">
+      <%= category.name %>
+    </div>
   <% end %>
-</div>
+<% end %>

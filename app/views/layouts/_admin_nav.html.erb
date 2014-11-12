@@ -1,26 +1,27 @@
-<div class="nav">
-  <% nav = {
-    "Categories" => {
-      "All" => categories_path,
-      "New" => new_category_path
-    },
-    "Posts" => {
-      "All" => posts_path,
-      "New" => new_post_path
-    },
-    "File uploads" => {
-      "All" => file_assets_path,
-      "New" => new_file_asset_path
-    }
+<% nav = {
+  "Categories" => {
+    "All" => categories_path,
+    "New" => new_category_path
+  },
+  "Posts" => {
+    "All" => posts_path,
+    "New" => new_post_path
+  },
+  "File uploads" => {
+    "All" => file_assets_path,
+    "New" => new_file_asset_path
+  },
+  "User" => {
+    "Log out" => destroy_admin_session_path
   }
-  nav.each_pair do |name, subtree| %>
-    <div class="menu-category category-level-0"><%= name %></div>
-    <% subtree.each_pair do |action, target| %>
-      <%= link_to target do %>
-        <div class="menu-category category-level-1">
-          <%= action %>
-        </div>
-      <% end %>
+}
+nav.each_pair do |name, subtree| %>
+  <div class="menu-category category-level-0"><%= name %></div>
+  <% subtree.each_pair do |action, target| %>
+    <%= link_to target do %>
+      <div class="menu-category category-level-1">
+        <%= action %>
+      </div>
     <% end %>
   <% end %>
-</div>
+<% end %>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Admin</title>
+  <title>Neal Donnelly dot com</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -11,8 +11,13 @@
 
 <div class="color-overlay"></div>
 
-<div class="admin">
-<%= render "layouts/admin_nav" %>
+<div class="<%= if current_admin then 'admin' else 'public' end%>">
+  <div class="nav">
+    <%= render "layouts/public_nav" %>
+    <% if current_admin %>
+      <%= render "layouts/admin_nav" %>
+    <% end %>
+  </div>
   <div class="main">
     <%= render 'layouts/messages' %>
     <div class="primary-content">
