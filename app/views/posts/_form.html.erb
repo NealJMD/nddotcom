@@ -23,6 +23,10 @@
     <%= render partial: "shared/category_picker", locals: {f: f, property: :category_id} %>
   </div>
   <div class="field">
+    <%= f.label :is_single_image %><br>
+    <%= f.check_box :is_single_image %>
+  </div>
+  <div class="field">
     <%= f.label :published_at %><br>
     <%= f.datetime_select :published_at %>
   </div>

@@ -59,6 +59,6 @@ class PostsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def post_params
-      params.require(:post).permit(:category_id, :body, :title, :published_at)
+      params.require(:post).permit(:category_id, :body, :title, :is_single_image, :published_at)
     end
 end
