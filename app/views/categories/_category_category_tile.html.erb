@@ -1,14 +1,11 @@
 <% 
-bg = ""
+bg = "background-color: #{color_from_string(category.name)}; "
 category.posts.each do |post|
   if post.file_assets.size > 0
-    bg = "background-image: url(#{dev_safe_url(post.file_assets.first.content.url)})"
+    bg << "background-image: url(#{dev_safe_url(post.file_assets.first.content.url(:preview))})"
     break
   end
-end
-if bg.blank?
-  bg = "background-color: #{color_from_string(category.name)}" 
-end%>
+end %>
 <%= link_to category_path(category) do %>
   <div class="category-tile <%= cycle("left-side", "right-side") %>" style="<%= bg || "" %>">
     <div class="tile-title">
