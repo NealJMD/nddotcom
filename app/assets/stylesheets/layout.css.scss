@@ -11,22 +11,25 @@ body {
 
   @media(min-width:$two-column-width) {
 
-    $main-total-width: 65%;
-    $nav-total-width: 25%;
+    $main-total-width: 70%;
+    $nav-total-width: 22%;
     $gutter-size: (100% - $main-total-width - $nav-total-width) / 3;
 
     .nav  {
-      $nav-padding: 2%;
-      width: $nav-total-width - (2 * $gutter-size);
+      $nav-padding: 0%;
+      width: $nav-total-width - (2 * $nav-padding);
       height: 96%;
       padding: 1em $nav-padding;
       margin: 0 $gutter-size;
     }
     .main {
-      $main-padding: 5%;
-      padding: 1em $main-padding;
+      $main-padding: 0%;
+      padding: 0 $main-padding;
       margin: 1.4em 0;
       width: $main-total-width - 2*$main-padding;
+      .main-inner {
+        padding: 1.4em 4%;
+      }
     }
   }
   @media(max-width:$two-column-width) {

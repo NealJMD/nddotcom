@@ -1,13 +1,13 @@
 <div class="display-post">
-
-  <h1>
-    <%= @post.title %>
-  </h1>
+  <% if @post.is_single_image and @post.image_assets.size > 0 %>
+    <img src="<%= dev_safe_url(@post.image_assets.first.content.url) %>" />
+  <% end %>
 
   <div class="post-body">
-    <% if @post.is_single_image and @post.image_assets.size > 0 %>
-      <img src="<%= dev_safe_url(@post.image_assets.first.content.url) %>" />
-    <% end %>
+      <h1>
+        <%= @post.title %>
+      </h1>
+
     <% if @post.body != @post.title %>
       <% if @post.is_single_image %>
         <div class="caption"><%=raw @post.body %></div>

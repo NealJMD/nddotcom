@@ -4,12 +4,15 @@
 
 .post-body {
   overflow: hidden;
+  padding: 1.4em 4%;
+  .caption {
+    // margin: 1em;
+    font-style: italic;
+  }
+}
+.display-post {
   img {
     border: none;
     width: 100%;
-  }
-  .caption {
-    margin: 1em;
-    font-style: italic;
   }
 }
