@@ -16,3 +16,41 @@
     width: 100%;
   }
 }
+.proximal-buttons {
+  width: 100%;
+  min-height: 3.5em;
+  font-size: 0.8em;
+  .previous, .next, .keyboard-tip {
+    overflow: hidden;
+    min-height: 2.5em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    float: left;
+    text-align: center;
+  }
+  $btn-fraction: 38%;
+  $padding: 2%;
+  .previous, .next {
+    width: $btn-fraction - (2 * $padding);
+    background: #DDD;
+    padding-left: $padding;
+    padding-right: $padding;
+    &.empty {
+      background: none;
+    }
+    &:hover {
+      background: white;
+    }
+  }
+  .keyboard-tip {
+    width: 100% - (2 * $btn-fraction) - (2 * $padding);
+    padding-left: $padding;
+    padding-right: $padding;
+  }
+  .keyboard-tip {
+    text-align: center;
+  }
+  .next {
+    float: right;
+  }
+}

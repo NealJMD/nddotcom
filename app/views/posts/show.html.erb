@@ -16,4 +16,28 @@
       <% end %>
     <% end %>
   </div>
+
+  <% next_post = @post.next
+  previous_post = @post.previous
+  unless next_post.nil? and previous_post.nil? %>
+    <div class="proximal-buttons">
+      <% if previous_post.nil? %>
+        <div class="previous empty"></div>
+      <% else %>
+        <%= link_to previous_post do %>
+          <div class="previous">&laquo; Previous<br> <%= previous_post.title %></div>
+        <% end %>
+      <% end %>
+      <div class="keyboard-tip">
+        Navigate with left and right arrow keys!
+      </div>
+      <% if next_post.nil? %>
+        <div class="next empty"></div>
+      <% else %>
+        <%= link_to next_post do %>
+          <div class="next">Next &raquo;<br> <%= next_post.title %></div>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
 </div>
