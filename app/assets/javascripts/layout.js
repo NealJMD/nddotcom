@@ -18,6 +18,25 @@ $(document).ready(function(){
 
   change_bg_color();
   var bg_interval = window.setInterval(change_bg_color, 20000);
+
+  $(document).on('touchstart click', '.toggle-nav', function(event){
+    event.stopPropagation();
+    event.preventDefault();
+    if(event.handled !== true) {
+      var targets = $('.menu-category.togglable');
+      var switcher = $('.toggle-nav')
+      if (targets.hasClass('nav-toggled-off')) {
+        targets.removeClass('nav-toggled-off').addClass('nav-toggled-on');
+        switcher.text('Hide navigation');
+      } else {
+        targets.removeClass('nav-toggled-on').addClass('nav-toggled-off');
+        switcher.text('Show navigation');
+      }
+      event.handled = true;
+    } else {
+      return false;
+    }
+  });
 });
 
 

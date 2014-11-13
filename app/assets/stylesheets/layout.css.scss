@@ -21,6 +21,12 @@ body {
       height: 96%;
       padding: 1em $nav-padding;
       margin: 0 $gutter-size;
+      .toggle-nav {
+        display: none;
+      }
+      .nav-toggled-off, .nav-toggled-on {
+        display: block;
+      }
     }
     .main {
       $main-padding: 0%;
@@ -39,15 +45,21 @@ body {
     $width: 100% - (2*$padding) - (2*$margin);
 
     .nav  {
-      width: $width;
-      padding: 1em $padding;
-      margin: 0 $margin;
+      width: $width + (2*$padding);
+      padding: 0;
+      margin: 1em $margin;
       height: 96%;
+      .toggle-nav, .nav-toggled-on {
+        display: block;
+      }
+      .nav-toggled-off {
+        display: none;
+      }
     }
     .main {
       width: $width;
       padding: 1em $padding;
-      margin: 0 $margin;
+      margin: 0 $margin 1em;
       height: 96%;
     }
     .keyboard-tip {

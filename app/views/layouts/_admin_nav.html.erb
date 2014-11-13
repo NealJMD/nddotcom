@@ -16,10 +16,10 @@
   }
 }
 nav.each_pair do |name, subtree| %>
-  <div class="menu-category category-level-0"><%= name %></div>
+  <div class="nav-toggled-off togglable menu-category category-level-0"><%= name %></div>
   <% subtree.each_pair do |action, target| %>
     <%= link_to target do %>
-      <div class="menu-category category-level-1">
+      <div class="nav-toggled-off togglable menu-category category-level-1">
         <%= action %>
       </div>
     <% end %>
