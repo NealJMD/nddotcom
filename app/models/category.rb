@@ -3,8 +3,10 @@ class Category < ActiveRecord::Base
 
   acts_as_tree order: "name"
   has_many :posts
+  before_validation :create_slug
 
   validates :name, presence: true, allow_blank: false
+  validates :slug, presence: true, allow_blank: false, uniqueness: true
   validate :no_loops
 
   def ancestry
@@ -14,6 +16,14 @@ class Category < ActiveRecord::Base
       current = current.parent
     end
     return out.reverse.join(" - ")
+  end
+
+  def to_param
+    return slug
+  end
+
+  def create_slug
+    self.slug = self.name.to_s.parameterize
   end
 
   private

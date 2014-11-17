@@ -1,5 +1,6 @@
 require 'rubygems'
 require 'spork'
+require 'capybara/rspec'
 #uncomment the following line to use spork with the debugger
 #require 'spork/ext/ruby-debug'
 
@@ -26,6 +27,9 @@ Spork.prefork do
     # config.mock_with :flexmock
     # config.mock_with :rr
     # config.include UserHelper
+
+    # use capybara for integration tests
+    config.include Capybara::DSL
     
     # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
     config.fixture_path = "#{::Rails.root}/spec/fixtures"

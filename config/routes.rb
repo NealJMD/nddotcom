@@ -1,13 +1,15 @@
 Rails.application.routes.draw do
 
   devise_for :admins
+
   resources :file_assets
 
   resources :posts
 
-  resources :categories
+  resources :categories, :param => :slug, :path => '', :only => [:show]
+  resources :categories, :param => :slug
 
-  root to: "posts#index"
+  root to: redirect('/ideas')
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

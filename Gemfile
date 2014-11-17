@@ -33,13 +33,16 @@ gem 'paperclip'
 gem 'devise'
 
 # use rspec and spork for tests
-gem 'rspec-rails'
-gem 'spork'
+group :test do
+  gem 'rspec-rails'
+  gem 'spork'
+  gem 'capybara'
+end
 
-# store files on S3
-gem 'aws-sdk', group: :production
-# logging and assets for rails on heroku
-gem 'rails_12factor', group: :production
+group :production do
+  gem 'aws-sdk' # store files on S3
+  gem 'rails_12factor' # logging and assets for rails on heroku
+end
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

@@ -21,6 +21,7 @@ describe Category do
   it { should respond_to :children }
   it { should respond_to :parent }
   it { should respond_to :siblings }
+  it { should respond_to :slug }
 
   describe "when name is" do
 
@@ -39,6 +40,15 @@ describe Category do
       it { should be_valid }
     end
   end
+
+  describe "when slug already exists" do
+    let(:reblog) { Category.new(name: " BloG  ") }
+
+    subject { reblog }
+
+    it { should_not be_valid }
+  end
+
 
   describe "parent-child relations" do
 
