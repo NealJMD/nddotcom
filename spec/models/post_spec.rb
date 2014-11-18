@@ -25,7 +25,39 @@ describe Post do
   it { should respond_to :title }
   it { should respond_to :published_at }
   it { should respond_to :is_single_image }
+  it { should respond_to :slug }
 
+  describe "when name is" do
+
+    describe "whitespace string" do
+      before { @post.title = " " }
+      it { should_not be_valid }
+    end
+
+    describe "empty string" do
+      before { @post.title = "" }
+      it { should_not be_valid }
+    end
+
+    describe "already taken" do
+      before do
+        @post.save!
+        @second = Post.new(title: "  My Sweet poSt", body: "asdfa sdf", category: blog, published_at: Time.now)
+      end
+
+      it "should fail to save" do
+        expect(@second.save).to eq false
+      end
+    end
+  end
+
+  describe "when slug already exists" do
+    let(:reblog) { Category.new(name: " BloG  ") }
+
+    subject { reblog }
+
+    it { should_not be_valid }
+  end
   describe "next and previous" do
 
     before do

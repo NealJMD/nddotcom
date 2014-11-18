@@ -10,7 +10,8 @@ class CategoriesController < ApplicationController
   # GET /categories/1
   def show
     if @category.posts.size == 1
-      redirect_to(@category.posts.first)
+      @post = @category.posts.first
+      render "posts/show"
     end
   end
 
@@ -30,7 +31,7 @@ class CategoriesController < ApplicationController
     @category = Category.new(category_params)
 
     if @category.save
-      redirect_to @category, notice: 'Category was successfully created.'
+      redirect_to category_clean_path(@category), notice: 'Category was successfully created.'
     else
       @categories = Category.all
       render :new

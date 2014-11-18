@@ -3,7 +3,7 @@
 </div>
 <% Category.walk_tree do |category, level| %>
   <% if level > 1 then next end %>
-  <%= link_to category_path(category) do %>
+  <%= link_to category_clean_path(category) do %>
     <div class="nav-toggled-off togglable menu-category category-level-<%= level %>">
       <%= category.name %>
     </div>

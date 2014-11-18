@@ -3,6 +3,10 @@ class Post < ActiveRecord::Base
   has_many :file_assets
   default_scope { order('published_at DESC, title DESC') }
 
+  before_validation :create_slug
+  validates :title, presence: true, allow_blank: false
+  validates :slug, presence: true, allow_blank: false, uniqueness: true
+
   def image_assets
     return self.file_assets.select{ |f| f.is_image? }
   end
@@ -22,5 +26,14 @@ class Post < ActiveRecord::Base
     end
     return current
   end
+
+  def to_param
+    return slug
+  end
+
+  def create_slug
+    self.slug = self.title.to_s.parameterize
+  end
+
 
 end

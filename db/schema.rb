@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141117201659) do
+ActiveRecord::Schema.define(version: 20141117231345) do
 
   create_table "admins", force: true do |t|
     t.string   "email",               default: "", null: false
@@ -59,8 +59,10 @@ ActiveRecord::Schema.define(version: 20141117201659) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "is_single_image", default: false
+    t.string   "slug"
   end
 
   add_index "posts", ["category_id"], name: "index_posts_on_category_id"
+  add_index "posts", ["slug"], name: "index_posts_on_slug"
 
 end

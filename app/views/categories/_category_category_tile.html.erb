@@ -6,7 +6,7 @@ category.posts.each do |post|
     break
   end
 end %>
-<%= link_to category_path(category) do %>
+<%= link_to category_clean_path(category) do %>
   <div class="category-tile <%= cycle("left-side", "right-side") %>" style="<%= bg || "" %>">
     <div class="tile-title">
       <%= category.name %>

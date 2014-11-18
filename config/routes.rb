@@ -4,12 +4,14 @@ Rails.application.routes.draw do
 
   resources :file_assets
 
-  resources :posts
-
-  resources :categories, :param => :slug, :path => '', :only => [:show]
+  resources :posts, :param => :slug
   resources :categories, :param => :slug
 
   root to: redirect('/ideas')
+
+  resources :categories, :param => :slug, :path => '', :only => [:show], :as => 'category_clean' do
+    resources :posts, :param => :slug, :path => '', :only => [:show]
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
