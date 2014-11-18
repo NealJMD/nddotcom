@@ -11,11 +11,26 @@
   }
 }
 .display-post {
-  img, iframe {
+  img, iframe, object {
     border: none;
     max-width: 100%;
     margin: 0 auto;
     display: block;
+  }
+  @media(min-width:900px) {
+    .left-column {
+      float: left;
+      width: 50%;
+    }
+    .right-column {
+      float: right;
+      width: 50%;
+    }
+  }
+  @media(max-width:900px) {
+    .left-column, .right-column {
+      width: 100%;
+    }
   }
 }
 .proximal-buttons {
