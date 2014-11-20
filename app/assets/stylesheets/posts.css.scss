@@ -34,6 +34,7 @@
   }
   p, .caption, .image-caption {
     font-size: 0.9em;
+    line-height: 1.6em;
   }
   .image-caption {
     display: block;
@@ -42,6 +43,9 @@
     padding: 0.8em 25%;
     font-style: italic;
     font-size: 0.8em;
+  }
+  .caption, .image-caption {
+    font-family: Verdana, Arial, sans;
   }
   a {
     color: #068bb8;

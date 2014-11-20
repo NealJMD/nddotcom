@@ -3,7 +3,7 @@
 body {
 
   $two-column-width: 900px;
-  $font-stack: Verdana, Arial, sans;
+  $font-stack: Lucida, 'Lucida sans', Verdana, Arial, sans;
   width: 100%;
   height: 100%;
   font-size: 100%;
@@ -11,7 +11,7 @@ body {
 
   @media(min-width:$two-column-width) {
 
-    $main-total-width: 70%;
+    $main-total-width: 60%;
     $nav-total-width: 22%;
     $gutter-size: (100% - $main-total-width - $nav-total-width) / 3;
 
