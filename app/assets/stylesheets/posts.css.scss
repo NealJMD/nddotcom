@@ -10,7 +10,7 @@
     font-style: italic;
   }
 }
-.display-post {
+.post-card {
   img, iframe, object {
     border: none;
     max-width: 100%;
@@ -48,7 +48,13 @@
     font-family: Verdana, Arial, sans;
   }
   a {
-    color: #068bb8;
+    color: #ea9c63;
+    h1, h2, h3, h4, h5, h6 {
+      color: #3d3d4d;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
 }
 .proximal-buttons {
@@ -60,32 +66,50 @@
     min-height: 2.5em;
     padding-top: 0.5em;
     padding-bottom: 0.5em;
-    float: left;
     text-align: center;
   }
   $btn-fraction: 38%;
   $padding: 2%;
   .previous, .next {
     width: $btn-fraction - (2 * $padding);
-    background: #DDD;
+    background: #eee;
     padding-left: $padding;
     padding-right: $padding;
+    position: relative;
     &.empty {
       background: none;
+      border: none;
     }
     &:hover {
-      background: white;
+      text-decoration: underline;
+    }
+    .border-line {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: #ccc;
+    }
+  }
+  .previous {
+    float: left;
+    .border-line {
+      right: 0;
+    }
+  }
+  .next {
+    float: right;
+    .border-line {
+      left: 0;
     }
   }
   .keyboard-tip {
     width: 100% - (2 * $btn-fraction) - (2 * $padding);
     padding-left: $padding;
     padding-right: $padding;
+    float: left;
   }
   .keyboard-tip {
     text-align: center;
-  }
-  .next {
-    float: right;
   }
 }

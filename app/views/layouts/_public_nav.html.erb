@@ -1,11 +1,25 @@
-<div class="menu-category category-level-0 toggle-nav">
-  Show Navigation
+<div class="menu-category mini-bar toggle-nav">
+  <div class="liner">
+    Show Navigation
+  </div>
 </div>
-<% Category.walk_tree do |category, level| %>
-  <% if level > 1 then next end %>
-  <%= link_to category_clean_path(category) do %>
-    <div class="nav-toggled-off togglable menu-category category-level-<%= level %>">
-      <%= category.name %>
+<% Category.includes(:children).where(parent_id: nil).each do |top_category| %>
+  <%= link_to category_clean_path(top_category) do %>
+    <div class="nav-toggled-off togglable menu-category mini-bar">
+      <div class="liner">
+        <%= top_category.name %>
+      </div>
+      <% if top_category.children.size > 1 %>
+        <div class="subpanel">
+          <% top_category.children.each do |child_category| %>
+            <%= link_to category_clean_path(child_category) do %>
+              <div class="subpanel-row">
+                <%= child_category.name %>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
     </div>
   <% end %>
 <% end %>

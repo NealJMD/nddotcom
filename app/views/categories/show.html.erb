@@ -1,15 +1,25 @@
-<div class="main-inner">
-  <h1>
-    <%= @category.name %>
-  </h1>
+<div class="bar">
+  <div class="liner">
+    <%= @category.ancestry %>
+  </div>
+</div>
 
-  <% if @category.posts.size > 0 %>
-    <% @category.posts.each do |post| %>
-      <%= render partial: "post_category_tile", locals: {post: post} %>
-    <% end %>
-  <% else %>
-    <% @category.children.each do |child_cat| %>
-      <%= render partial: "category_category_tile", locals: {category: child_cat} %>
+<%
+if @category.is_visual
+  partial = "post_category_tile" 
+else
+  partial = "posts/display_post"
+end
+%>
+
+<% if @category.posts.size > 0 %>
+  <% @category.posts.each do |post| %>
+    <%= render partial: partial, locals: {post: post} %>
+  <% end %>
+<% else %>
+  <% @category.children.each do |child_cat| %>
+    <% child_cat.posts.each do |post| %>
+      <%= render partial: partial, locals: {post: post} %>
     <% end %>
   <% end %>
-</div>
+<% end %>

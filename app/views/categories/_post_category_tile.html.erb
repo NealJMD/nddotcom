@@ -4,9 +4,10 @@ if post.image_assets.size > 0
   bg << "background-image: url(#{dev_safe_url(post.image_assets.first.content.url(:preview))});"
 end %>
 <%= link_to category_clean_post_path(post.category, post) do %>
-  <div class="category-tile <%= cycle("left-side", "right-side") %>" style="<%= bg %>">
+  <div class="tile" style="<%= bg %>">
     <div class="tile-title">
       <%= post.title %>
     </div>
+    <div class="hover-border"></div>
   </div>
 <% end %>

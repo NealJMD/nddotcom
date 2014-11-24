@@ -1,9 +1,16 @@
+@import "mixins";
+
 body {
   width: 100%;
   font-size: 100%;
   margin: 0;
   padding: 0;
-  background: asset-url("knitting-texture.png", image) white;
+  $white-gray: #eee;
+  $black-gray: #3d3d4d;
+  $border-gray: #ccc;
+  $font-stack: 'Oxygen', Verdana, Arial, sans;
+  font-family: $font-stack;
+  background: asset-url("noise-texture.png", image) white;
 
   .color-overlay {
     width: 100%;
@@ -13,7 +20,8 @@ body {
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: rgba(2, 55, 72, 0.8);
+    background: linear-gradient(2deg, #ea9c63, #096b89);
+    opacity: 0.8;
     z-index: -1;
     transition: background-color 20s linear;
   }
@@ -34,6 +42,58 @@ body {
     color: black;
     &:hover {
       text-decoration: underline;
+    }
+  }
+  .grid-container {
+
+    .tile, .bar, .mini-bar, .post-card {
+      background: white;// $white-gray;
+      color: $black-gray;
+      @include box-shadow(7px, 0.7);
+      .proximal-buttons a{
+        color: $black-gray;
+      }
+    }
+    a:hover {
+      .tile, .bar, .mini-bar, .post-card {
+        * {
+          text-decoration: underline;
+        }
+      }
+    }
+    .tile {
+      position: relative;
+      .tile-title {
+        background: white;
+        $padding-width: 8%;
+        width: 100% - (2 * $padding-width);
+        padding: 0.5em $padding-width;
+        position: absolute;
+        bottom: 0;
+        border-top: 1px solid $border-gray;
+      }
+      .hover-border:hover {
+        border-width: 0.3em;
+        border-color: white;
+      }
+    }
+    .bar {
+      .liner {
+        padding: 1em 4%;
+      }
+    }
+    .mini-bar {
+      .liner {
+        padding: 0.6em 10%;
+      }
+      .subpanel {
+        background: $white-gray;
+        padding: 0.3em 10% 0.6em;
+        border-top: 1px solid $border-gray;
+        .subpanel-row {
+          padding: 0.2em 0%;
+        }
+      }
     }
   }
 }

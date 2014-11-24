@@ -16,15 +16,15 @@ $(document).ready(function(){
     $('.color-overlay').css("background-color", rgba)
   }
 
-  change_bg_color();
-  var bg_interval = window.setInterval(change_bg_color, 20000);
+  // change_bg_color();
+  // var bg_interval = window.setInterval(change_bg_color, 20000);
 
   $(document).on('touchstart click', '.toggle-nav', function(event){
     event.stopPropagation();
     event.preventDefault();
     if(event.handled !== true) {
       var targets = $('.menu-category.togglable');
-      var switcher = $('.toggle-nav')
+      var switcher = $('.toggle-nav .liner')
       if (targets.hasClass('nav-toggled-off')) {
         targets.removeClass('nav-toggled-off').addClass('nav-toggled-on');
         switcher.text('Hide navigation');

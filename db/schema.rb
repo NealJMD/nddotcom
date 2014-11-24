@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141117231345) do
+ActiveRecord::Schema.define(version: 20141123235421) do
 
   create_table "admins", force: true do |t|
     t.string   "email",               default: "", null: false
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20141117231345) do
     t.datetime "updated_at"
     t.integer  "parent_id"
     t.string   "slug"
+    t.boolean  "is_visual",  default: false
   end
 
   add_index "categories", ["slug"], name: "index_categories_on_slug"

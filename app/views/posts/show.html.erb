@@ -1,43 +1,30 @@
-<div class="display-post">
-  <% if @post.is_single_image and @post.image_assets.size > 0 %>
-    <img src="<%= dev_safe_url(@post.image_assets.first.content.url) %>" />
-  <% end %>
-
-  <div class="post-body">
-      <h1>
-        <%= @post.title %>
-      </h1>
-
-    <% if @post.body != @post.title %>
-      <% if @post.is_single_image %>
-        <div class="caption"><%=raw @post.body %></div>
-      <% else %>
-        <%=raw @post.body %>
+<%= render partial: "posts/display_post", locals: {post: @post, title_link: false} %>
+<% next_post = @post.next
+previous_post = @post.previous
+unless next_post.nil? and previous_post.nil? %>
+  <div class="proximal-buttons bar">
+    <% if previous_post.nil? %>
+      <div class="previous empty"></div>
+    <% else %>
+      <%= link_to previous_post do %>
+        <div class="previous">
+          &laquo; Previous<br> <%= previous_post.title %>
+          <div class="border-line"></div>
+        </div>
+      <% end %>
+    <% end %>
+    <div class="keyboard-tip">
+      Navigate with left and right arrow keys!
+    </div>
+    <% if next_post.nil? %>
+      <div class="next empty"></div>
+    <% else %>
+      <%= link_to next_post do %>
+        <div class="next">
+          <div class="border-line"></div>
+          Next &raquo;<br> <%= next_post.title %>
+        </div>
       <% end %>
     <% end %>
   </div>
-
-  <% next_post = @post.next
-  previous_post = @post.previous
-  unless next_post.nil? and previous_post.nil? %>
-    <div class="proximal-buttons">
-      <% if previous_post.nil? %>
-        <div class="previous empty"></div>
-      <% else %>
-        <%= link_to previous_post do %>
-          <div class="previous">&laquo; Previous<br> <%= previous_post.title %></div>
-        <% end %>
-      <% end %>
-      <div class="keyboard-tip">
-        Navigate with left and right arrow keys!
-      </div>
-      <% if next_post.nil? %>
-        <div class="next empty"></div>
-      <% else %>
-        <%= link_to next_post do %>
-          <div class="next">Next &raquo;<br> <%= next_post.title %></div>
-        <% end %>
-      <% end %>
-    </div>
-  <% end %>
-</div>
+<% end %>

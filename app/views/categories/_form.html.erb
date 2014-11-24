@@ -16,6 +16,10 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
+    <%= f.label :is_visual %><br>
+    <%= f.check_box :is_visual %>
+  </div>
+  <div class="field">
     <%= render partial: "shared/category_picker", locals: {f: f, property: :parent_id} %>
   </div>
   <div class="actions">

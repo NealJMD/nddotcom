@@ -1,40 +1,66 @@
-@import "mixins";
-
 body {
 
   $two-column-width: 900px;
-  $font-stack: Lucida, 'Lucida sans', Verdana, Arial, sans;
   width: 100%;
   height: 100%;
   font-size: 100%;
-  font-family: $font-stack;
 
   @media(min-width:$two-column-width) {
 
-    $main-total-width: 60%;
-    $nav-total-width: 22%;
-    $gutter-size: (100% - $main-total-width - $nav-total-width) / 3;
+    // dictate layout
+    $total-columns: 4;
+    $gap-width: 3%;
+    $grid-width: 80%;
+      $bottom-margin: 2em;
 
-    .nav  {
-      $nav-padding: 0%;
-      width: $nav-total-width - (2 * $nav-padding);
-      height: 96%;
-      padding: 1em $nav-padding;
-      margin: 0 $gutter-size;
-      .toggle-nav {
-        display: none;
+    // computed
+    $column-width: (100% + $gap-width) / $total-columns - $gap-width;
+    $full-width: 3 * $column-width + 2 * $gap-width;
+
+    .grid-container {
+      width: $grid-width;
+      margin: 2em auto;
+      .nav  {
+        width: $column-width;
+        height: 100%;
+        .toggle-nav {
+          display: none;
+        }
+        .nav-toggled-off, .nav-toggled-on {
+          display: block;
+        }
       }
-      .nav-toggled-off, .nav-toggled-on {
-        display: block;
+      .tile {
+        float: left;
+        margin-right: $gap-width;
+        margin-bottom: $bottom-margin;
+        width: $column-width;
+        height: 18em;
+        position: relative;
+        .hover-border {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          border: 0em solid white;
+          transition: border-width 0.1s linear;
+        }
       }
-    }
-    .main {
-      $main-padding: 0%;
-      padding: 0 $main-padding;
-      margin: 1.4em 0;
-      width: $main-total-width - 2*$main-padding;
-      .main-inner {
-        padding: 1.4em 4%;
+      .bar {
+        float: left;
+        margin-right: $gap-width;
+        margin-bottom: $bottom-margin;
+        width: $full-width;
+      }
+      .mini-bar {
+        margin-bottom: $bottom-margin;
+      }
+      .post-card {
+        float: left;
+        margin-bottom: $bottom-margin;
+        margin-right: $gap-width;
+        width: $full-width;
       }
     }
   }
@@ -44,23 +70,61 @@ body {
     $margin: 2%;
     $width: 100% - (2*$padding) - (2*$margin);
 
-    .nav  {
-      width: $width + (2*$padding);
-      padding: 0;
-      margin: 1em $margin;
-      height: 96%;
-      .toggle-nav, .nav-toggled-on {
-        display: block;
+    $total-columns: 1;
+    $gap-width: 0%;
+    $grid-width: 90%;
+    $bottom-margin: 1em;
+
+    // computed
+    $column-width: 100%;
+    $full-width: 100%;
+
+    .grid-container {
+      width: $grid-width;
+      margin: 2em auto;
+      .nav  {
+        width: $column-width;
+        height: 100%;
+        .toggle-nav, .nav-toggled-on {
+          display: block;
+          cursor: pointer;
+        }
+        .nav-toggled-off {
+          display: none;
+        }
       }
-      .nav-toggled-off {
-        display: none;
+      .tile {
+        float: left;
+        margin-right: $gap-width;
+        margin-bottom: $bottom-margin;
+        width: $column-width;
+        height: 18em;
+        position: relative;
+        .hover-border {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          border: 0em solid white;
+          transition: border-width 0.1s linear;
+        }
       }
-    }
-    .main {
-      width: $width;
-      padding: 1em $padding;
-      margin: 0 $margin 1em;
-      height: 96%;
+      .bar {
+        float: left;
+        margin-right: $gap-width;
+        margin-bottom: $bottom-margin;
+        width: $full-width;
+      }
+      .mini-bar {
+        margin-bottom: $bottom-margin;
+      }
+      .post-card {
+        float: left;
+        margin-bottom: $bottom-margin;
+        margin-right: $gap-width;
+        width: $full-width;
+      }
     }
     .keyboard-tip {
       display: none;
@@ -69,37 +133,9 @@ body {
 
   .nav  {
     float: right;
-
-    color: white;
-    a {
-      text-decoration: none;
-    }
-    .menu-category {
-      padding: 5%;
-      color: white;
-      &:hover {
-        background: rgba(255, 255, 255, 0.5)
-      }
-    }
-    .category-level-0 {
-      background: rgba(210, 210, 210, 0.4);
-      font-size: 1.1em;
-      padding: 0.4em 5%;
-      margin-top: 0.4em;
-      margin-bottom: 0.1em;
-    }
-    .category-level-1 {
-      font-size: 0.9em;
-      padding: 0.2em 8%;
-    }
-
   }
   .main {
-    float: right;
-    background: #EEE;
-    @include box-shadow(7px, 0.7);
+    float: left;
   }
-
-
 
 }
