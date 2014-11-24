@@ -32,7 +32,7 @@
       width: 100%;
     }
   }
-  p, .caption, .image-caption {
+  p, .caption, .image-caption, .published-at, ul {
     font-size: 0.9em;
     line-height: 1.6em;
   }
@@ -44,8 +44,8 @@
     font-style: italic;
     font-size: 0.8em;
   }
-  .caption, .image-caption {
-    font-family: Verdana, Arial, sans;
+  .published-at {
+    font-style: italic;
   }
   a {
     color: #ea9c63;

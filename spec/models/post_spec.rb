@@ -58,6 +58,19 @@ describe Post do
 
     it { should_not be_valid }
   end
+
+  describe ".root_category" do
+
+    before do
+      @post.save!
+    end
+
+    it "should have the correct root category" do
+      expect(@post.root_category.name).to eq blog.name
+      expect(@post.root_category).to eq blog
+    end
+  end
+
   describe "next and previous" do
 
     before do

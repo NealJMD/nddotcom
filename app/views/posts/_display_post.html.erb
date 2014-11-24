@@ -17,6 +17,12 @@
       </h1>
     <% end %>
 
+    <% if post.root_category.name.downcase == BLOG_CATEGORY_NAME.downcase %>
+      <div class="published-at">
+        Published on <%= post.published_at.strftime("%B %d, %Y") %>
+      </div>
+    <% end %>
+
     <% if post.body != post.title %>
       <% if post.is_single_image %>
         <div class="caption"><%=raw post.body %></div>

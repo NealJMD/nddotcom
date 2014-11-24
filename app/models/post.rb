@@ -11,6 +11,14 @@ class Post < ActiveRecord::Base
     return self.file_assets.select{ |f| f.is_image? }
   end
 
+  def root_category
+    cat = self.category
+    while not cat.parent_id.nil?
+      cat = cat.parent
+    end
+    return cat
+  end
+
   def next
     current = nil
     category.posts.where('published_at >= ?', published_at).each do |p|
