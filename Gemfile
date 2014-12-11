@@ -32,6 +32,9 @@ gem 'paperclip'
 # admin authentication
 gem 'devise'
 
+# user unicorn for server
+gem 'unicorn'
+
 # use rspec and spork for tests
 group :test do
   gem 'rspec-rails'
