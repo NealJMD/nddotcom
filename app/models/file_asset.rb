@@ -3,10 +3,10 @@ class FileAsset < ActiveRecord::Base
 
   has_attached_file :content, {
     styles: {
-      preview: '1200x560^'
+      preview: '920x1160^'
     },
     convert_options: {
-      preview: '-gravity Center -crop 600x280+0+0 -strip'
+      preview: '-gravity Center -crop 460x580+0+0 -strip'
     }
   }.merge(PAPERCLIP_FILE_ASSET_STORAGE_OPTIONS)
 

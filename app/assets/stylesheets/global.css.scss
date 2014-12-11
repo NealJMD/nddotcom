@@ -63,6 +63,7 @@ body {
     }
     .tile {
       position: relative;
+      background-size: cover;
       .tile-title {
         background: white;
         $padding-width: 8%;
