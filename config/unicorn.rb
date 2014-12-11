@@ -1,6 +1,6 @@
 preload_app true
 worker_processes Integer(ENV['WEB_CONCURRENCY'] || 2)
-timeout 30
+timeout 120
 
 before_fork do |server, worker|
   Signal.trap 'TERM' do

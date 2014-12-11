@@ -6,7 +6,7 @@ This is the Rails app that I'm using to serve my own portfolio and blog.
   - finish integration tests
   - make category mandatory for posts in validation, with tests
   - allow sorting categories by priority
-  - add special view for blog posts
+  - make reasonable error pages
   - write remaining posts
     - reverse engineering processor
     - hardware vs software for sports reactions
