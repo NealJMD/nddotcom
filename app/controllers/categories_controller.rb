@@ -9,6 +9,7 @@ class CategoriesController < ApplicationController
 
   # GET /categories/1
   def show
+    raise ActiveRecord::RecordNotFound if @category.blank?
     if @category.posts.size == 1
       @post = @category.posts.first
       render "posts/show"
