@@ -12,14 +12,13 @@ else
 end
 %>
 
+<%= @category.posts.size %>
 <% if @category.posts.size > 0 %>
-  <% @category.posts.each do |post| %>
+  <% @category.posts.sort_by(&:published_at).each do |post| %>
     <%= render partial: partial, locals: {post: post} %>
   <% end %>
 <% else %>
-  <% @category.children.each do |child_cat| %>
-    <% child_cat.posts.each do |post| %>
-      <%= render partial: partial, locals: {post: post} %>
-    <% end %>
+  <% @category.children.map(&:posts).flatten.sort_by(&:published_at).reverse.each do |post| %>
+    <%= render partial: partial, locals: {post: post} %>
   <% end %>
 <% end %>
